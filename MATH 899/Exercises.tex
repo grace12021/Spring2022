@@ -1,0 +1,19 @@
+\chapter{Exercises}
+\subsection*{1. Cayley-Hamilton Thm and Nakayama's Lemma}
+\exercise{Let $F$ be a field and $V$ a finite-dimensional vector space over $F$. We let $T$ be a linear operator on $V$. Prove that the characteristic polynomial of $T$ and the minimal polynomial of $T$ have the same roots.}
+\begin{solution}
+From previous exercise, we proved that the minimal polynomial divides the characteristic polynomial. Hence it is obvious that the roots of the minimal polynomial of $T$ are also the roots of the characteristic polynomial of $T$.
+\end{solution}
+\exercise{Use the previous exercise to determine the minimal polynomial of $A = \left(
+\begin{array}{ccc}
+   3 & 1 & -1 \\
+   2 & 2 & -1 \\
+   2 & 2 & 0
+\end{array}\right)$.}
+\begin{solution}
+Since the characteristic polynomial of $A$ is $(x-2)^2(x-1)$, $(x-2), (x-1)$ divide the minimal polynomial. We have only two options for the minimal polynomial: $(x-2)(x-1)$ and $(x-2)^2(x-1)$. With calculation, we have $(A-2)(A-1) \neq 0$ so the minimal polynomial of $A$ is $(x-2)^2(x-1)$.
+\end{solution}
+\exercise{Let $R$ be a local ring and $I$ the unique maximal ideal. Suppose $\{m_1, \cdots, m_k\}$ is a minimal generating set for the $R$-module $M$. Prove that if $\sum_{i=1}^k r_im_i = 0$ then $r_i \in I$ for $i = 1, \cdots, k$.}
+\begin{solution}
+
+\end{solution}

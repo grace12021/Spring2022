@@ -1,0 +1,85 @@
+\documentclass{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{latexsym,amsthm,cite}
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+%----------------------------------------------------------------------------------------
+%	MATH ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}\noindent \\}
+
+%--------------------------------------------------------------------------------------
+%	MATH SYMBOLS
+%----------------------------------------------------------------------------------------
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Act}{\rotatebox[origin=c]{180}{$\circlearrowright$}}
+\newcommand{\nil}{\mathrm{nil}}
+\newcommand{\rad}{\mathrm{rad}}
+\newcommand{\ann}{\mathrm{ann}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\Hom}{\mathrm{Hom}}
+
+%--------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+\newcommand{\maketitletwo}
+    {\begin{center}
+            \large{\textbf{Spring 2022}}\\
+            \Large{\textbf{MATH 850: Pre-Lecture Exercises}} % Name of course here
+            \vspace{10pt}
+            
+            \normalsize{\hfill Nayeong Kim  % Your name here
+    	}        % Change to due date if preferred
+    	\vspace{15pt}
+    \end{center}}
+
+\begin{document}
+	\maketitletwo
+	In this section we will consider only integral domains which are commutative rings with $1$ and no nonzero zero-divisors.
+	\lemma\label{e1l1}{Let $R$ be an integral domain and $a \in R$. Then $(a) = R$ if and only if $a$ is a unit.}
+	\begin{proof}
+	($\Rightarrow$) Since $1 \in (a)$, we can write $1 = ab$ for some $b \in R$. Hence $a$ is a unit with the inverse $b$.\\
+	($\Leftarrow$) Since $a$ has its inverse $a^{-1}$, $r = a(a^{-1}r)$ is in $(a)$ for all $r \in R$. Therefore $(a) = R$.
+	\end{proof}
+	\noindent \\
+	
+	\exercise{[V.1.12]\\
+	Let $R$ be an integral domain. Prove that $a \in R$ is irreducible if and only if $(a)$ is maximal among proper principal ideals of $R$.}
+	\begin{solution}
+	($\Rightarrow$) Suppose that there exists $b \in R$ such that $a \in (b)$. Then $a = bc$ for some $c \in R$. With the premise, one of $b$ or $c$ is a unit. If $b$ is a unit, we have $(b) = R$. Otherwise, $c$ is a unit hence $a$ and $b$ are associates. Therefore any principal ideal containing $(a)$ is $R$ or $(a)$. In other words, $(a)$ is a maximal among proper principal ideals of $R$.\\
+	($\Leftarrow$) Since $(a)$ is maximal among proper principal ideals of $R$, we have $(a) \neq R$(which implies that $a$ is not a unit) and $a \neq 0$. Take any $b, c \in R$ such that $bc = a$. Hence $(a) \subseteq (b)$ and $(a) \subseteq (c)$. From the premise, $(b) = R$ or $(b) = (a)$. Likewise, $(c) = R$ or $(c) = (a)$. If $(b) = (c) = R$, then $b, c$ are units by Lemma \ref{e1l1} hence $a = bc$ is also a unit, which contradicts to the premise. If $(b) = (c) = (a)$, then $b = u_ba$ and $c = u_ca$ for some units $u_b, u_c \in R$. Since $a = bc = (u_bu_c)a^2$, we have $a(u_bu_ca -1) = 0$. Since $R$ is an integral domain and $a \neq 0$, $u_bu_ca = 1$, which contradicts to the fact that $a$ is not a unit. Therefore exactly one of $(b)$ or $(c)$ is $R$. In other words, exactly one of $b, c$ is a unit. We can conclude that $a$ is irreducible.
+	\end{solution}
+	\exercise{[V.1.13]\\
+	Prove that prime $\iff$ irreducible in $\Z$.}
+	\begin{solution}
+	($\Rightarrow$) Let $p \in \Z$ be a prime element. Take any $a, b \in \Z$ such that $ab = p$. Since $p$ divides itself, $p$ divides $a$ or $b$. Without loss of generality, let us assume that $p$ divides $a$. Recalling that $a$ divides $p$, $p$ and $a$ are associates. By Lemma 1.5 in the textbook, $p = ua$ for $u$ some unit in $\Z$. We have $p = \pm a$ because $1, -1$ are only units in $\Z$. Therefore $b = \pm 1$ which is a unit in $\Z$. Hence $p$ is irreducible in $\Z$.\\
+	($\Leftarrow$) Let $p \in \Z$ be an irreducible element. Take any $a, b \in \Z$ such that $p$ divides $ab$. We will show that one of $a, b$ is divisible by $p$. Assume that $p$ doesn't divide $a$. Let $d = \gcd(a, p)$. With the assumption, we have $p \neq d$. From the previous exercise, we have that $(p)$ is maximal among principal ideals. Since $(p) \subsetneq (d)$, we have $(d) = \Z$ hence $d = 1$. There exist $x, y \in \Z$ such that $px + ay = d (=1)$.
+	Hence $b = b(px + ay) \equiv aby \equiv 0 \mod p$. Therefore $p$ divides $b$. Therefore we can conclude that $p$ is prime in $\Z$.
+	\end{solution}
+\end{document}  
